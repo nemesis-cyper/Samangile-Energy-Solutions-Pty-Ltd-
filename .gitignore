@@ -1,0 +1,56 @@
+# Ignore environment variables
+.env
+.env.local
+.env.*.local
+
+# Ignore logs
+logs/
+*.log
+*.json
+
+# Ignore IDE/Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Ignore OS files
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+*.pem
+*.key
+
+# Ignore dependencies (if using Composer)
+vendor/
+composer.lock
+
+# Ignore uploads
+uploads/
+temp/
+cache/
+
+# Ignore database backups
+backups/
+*.sql
+*.sql.gz
+
+# Ignore node_modules (if using Node.js)
+node_modules/
+package-lock.json
+yarn.lock
+
+# Ignore build files
+dist/
+build/
+*.min.js
+*.min.css
+
+# Ignore private configuration
+config.local.php
+database.config.php
