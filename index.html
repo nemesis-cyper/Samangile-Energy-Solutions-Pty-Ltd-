@@ -1,191 +1,790 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samangile Energy Solutions - Renewable Energy & Engineering Services</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samangile Energy Solutions (Pty) Ltd - Engineering Excellence. Fabrication Precision. Energy Solutions.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+
+:root{
+  --black:#0d0d0d;
+  --near-black:#161616;
+  --gold:#e8a93a;
+  --gold-dark:#c98f24;
+  --green:#3a9d4f;
+  --green-dark:#2c7c3d;
+  --white:#ffffff;
+  --gray-100:#f5f5f5;
+  --gray-300:#d8d8d8;
+  --gray-600:#6b6b6b;
+  --text-body:#3a3a3a;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--text-body);
+  background:var(--white);
+  line-height:1.5;
+}
+
+h1,h2,h3,h4,h5{
+  font-family:'Oswald',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:0.3px;
+  margin:0;
+}
+
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+img{ max-width:100%; display:block; }
+.container{ max-width:1280px; margin:0 auto; padding:0 24px; }
+
+/* ============ TOP BAR / HEADER ============ */
+.topbar{
+  background:var(--black);
+  color:#cfcfcf;
+  font-size:0.85rem;
+}
+.topbar-inner{
+  display:flex;
+  justify-content:flex-end;
+  gap:28px;
+  padding:8px 24px;
+  max-width:1280px;
+  margin:0 auto;
+  flex-wrap:wrap;
+}
+.topbar-inner span{ display:flex; align-items:center; gap:6px; }
+.topbar-inner i{ color:var(--gold); }
+
+header.main-header{
+  background:var(--black);
+  border-bottom:2px solid #1f1f1f;
+}
+.header-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 24px;
+  max-width:1280px;
+  margin:0 auto;
+  gap:24px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.brand-icon{
+  width:54px;height:54px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  position:relative;
+  background:#000;
+  overflow:hidden;
+}
+.brand-icon img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+.brand-text h1{
+  font-size:1.25rem;
+  color:var(--gold);
+  line-height:1.1;
+}
+.brand-text h1 span{ color:var(--green); display:block; font-size:0.7rem; letter-spacing:1px; }
+.brand-text small{
+  display:block;
+  color:#999;
+  font-style:italic;
+  font-family:'Inter',sans-serif;
+  font-size:0.7rem;
+  text-transform:none;
+  margin-top:2px;
+}
+
+nav.main-nav{ display:flex; gap:26px; flex-wrap:wrap; }
+nav.main-nav a{
+  color:#e4e4e4;
+  font-size:0.82rem;
+  font-weight:600;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  padding-bottom:4px;
+  border-bottom:2px solid transparent;
+  transition:all .2s ease;
+  white-space:nowrap;
+}
+nav.main-nav a:hover, nav.main-nav a.active{
+  color:var(--gold);
+  border-bottom-color:var(--gold);
+}
+
+.btn-quote{
+  background:var(--gold);
+  color:var(--black);
+  font-weight:700;
+  font-size:0.8rem;
+  letter-spacing:0.5px;
+  padding:13px 22px;
+  border-radius:4px;
+  white-space:nowrap;
+  transition:background .2s ease;
+}
+.btn-quote:hover{ background:var(--gold-dark); }
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  background:#1a1a1a;
+  color:var(--white);
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  background-image:url('images/hero-welder.jpg');
+  background-size:cover;
+  background-position:65% 75%;
+  opacity:0.6;
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.6) 45%, rgba(10,10,10,0.25) 100%);
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  padding:64px 24px 56px;
+  max-width:1280px;
+  margin:0 auto;
+}
+.hero-content h2{
+  font-size:2.6rem;
+  line-height:1.15;
+  margin-bottom:18px;
+}
+.hero-content h2 .line1{ color:var(--white); display:block; }
+.hero-content h2 .line2{ color:var(--gold); display:block; }
+.hero-content h2 .line3{ color:var(--green); display:block; }
+.hero-content p{
+  max-width:540px;
+  color:#dcdcdc;
+  font-size:1rem;
+  margin-bottom:28px;
+}
+.hero-ctas{ display:flex; gap:14px; flex-wrap:wrap; }
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:13px 22px;
+  border-radius:4px;
+  font-weight:700;
+  font-size:0.82rem;
+  letter-spacing:0.4px;
+  text-transform:uppercase;
+  font-family:'Inter',sans-serif;
+  transition:all .2s ease;
+  cursor:pointer;
+  border:2px solid transparent;
+}
+.btn-gold{ background:var(--gold); color:var(--black); }
+.btn-gold:hover{ background:var(--gold-dark); }
+.btn-green{ background:var(--green); color:var(--white); }
+.btn-green:hover{ background:var(--green-dark); }
+.btn-outline{ background:transparent; color:var(--white); border-color:#fff; }
+.btn-outline:hover{ background:#fff; color:var(--black); }
+
+/* Floating side buttons */
+.float-actions{
+  position:absolute;
+  right:24px;
+  top:50%;
+  transform:translateY(-50%);
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.float-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:11px 18px;
+  border-radius:30px;
+  font-size:0.82rem;
+  font-weight:600;
+  white-space:nowrap;
+  font-family:'Inter',sans-serif;
+  text-transform:none;
+}
+.float-btn.whatsapp{ background:#25D366; color:#fff; }
+.float-btn.call{ background:rgba(0,0,0,0.55); color:#fff; border:1px solid rgba(255,255,255,0.3); }
+.float-btn.email{ background:rgba(0,0,0,0.55); color:#fff; border:1px solid rgba(255,255,255,0.3); }
+.float-btn i{ font-size:1rem; }
+
+/* ============ SERVICES STRIP ============ */
+.services-strip{
+  background:var(--near-black);
+  padding:26px 24px 30px;
+  border-top:1px solid #262626;
+  border-bottom:1px solid #262626;
+}
+.services-strip h3{
+  text-align:center;
+  color:var(--gold);
+  font-size:1rem;
+  letter-spacing:2px;
+  margin-bottom:22px;
+  position:relative;
+}
+.services-strip h3::before, .services-strip h3::after{
+  content:'';
+  display:inline-block;
+  width:40px;
+  height:1px;
+  background:#444;
+  vertical-align:middle;
+  margin:0 14px;
+}
+.services-grid{
+  max-width:1280px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(8,1fr);
+  gap:12px;
+}
+.service-item{
+  text-align:center;
+  color:#e4e4e4;
+  padding:10px 6px;
+}
+.service-item i{
+  font-size:1.7rem;
+  color:var(--green);
+  margin-bottom:10px;
+  display:block;
+}
+.service-item span{
+  font-size:0.78rem;
+  font-weight:600;
+  font-family:'Inter',sans-serif;
+  line-height:1.3;
+  display:block;
+}
+
+/* ============ FEATURED PROJECTS ============ */
+.projects-section{ padding:48px 24px; }
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:24px;
+  flex-wrap:wrap;
+  gap:12px;
+}
+.section-head h2{
+  font-size:1.5rem;
+  color:var(--black);
+}
+.view-all{
+  border:1.5px solid #ccc;
+  padding:9px 18px;
+  border-radius:4px;
+  font-size:0.78rem;
+  font-weight:700;
+  letter-spacing:0.5px;
+  text-transform:uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:all .2s ease;
+}
+.view-all:hover{ border-color:var(--gold); color:var(--gold-dark); }
+
+.projects-grid{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:16px;
+}
+.project-card{
+  border:1px solid #e8e8e8;
+  border-radius:6px;
+  overflow:hidden;
+  transition:box-shadow .2s ease, transform .2s ease;
+}
+.project-card:hover{
+  box-shadow:0 10px 24px rgba(0,0,0,0.12);
+  transform:translateY(-3px);
+}
+.project-card .img-wrap{
+  height:140px;
+  background-size:cover;
+  background-position:center;
+  background-color:#ddd;
+}
+.project-card .info{ padding:12px 14px 16px; }
+.project-card h5{
+  font-size:0.88rem;
+  color:var(--black);
+  margin-bottom:6px;
+  text-transform:none;
+  font-family:'Inter',sans-serif;
+  font-weight:700;
+}
+.project-card p{
+  font-size:0.78rem;
+  color:var(--gray-600);
+  margin-bottom:10px;
+  line-height:1.4;
+}
+.project-card .loc{
+  font-size:0.72rem;
+  color:var(--gold-dark);
+  display:flex;
+  align-items:center;
+  gap:5px;
+  font-weight:600;
+}
+
+/* ============ WHY US + ABOUT ============ */
+.dark-section{
+  background:var(--black);
+  color:#e4e4e4;
+  padding:48px 24px;
+}
+.dark-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1fr;
+  gap:40px;
+  max-width:1280px;
+  margin:0 auto;
+}
+.why-us h3, .about-us h3{
+  color:var(--gold);
+  font-size:1.05rem;
+  letter-spacing:1.5px;
+  margin-bottom:22px;
+  position:relative;
+  padding-left:18px;
+  border-left:3px solid var(--gold);
+}
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.why-item{ text-align:center; }
+.why-item .icon-circle{
+  width:60px;height:60px;
+  border:2px solid var(--gold);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 12px;
+}
+.why-item i{ color:var(--gold); font-size:1.4rem; }
+.why-item .icon-circle svg{ color:var(--gold); }
+.why-item h5{
+  color:#fff;
+  font-size:0.82rem;
+  margin-bottom:6px;
+  font-family:'Inter',sans-serif;
+  text-transform:none;
+  font-weight:700;
+}
+.why-item p{
+  font-size:0.74rem;
+  color:#999;
+  line-height:1.4;
+}
+
+.about-us p{
+  font-size:0.88rem;
+  color:#bdbdbd;
+  margin-bottom:20px;
+  line-height:1.7;
+}
+.learn-more{
+  background:var(--green);
+  color:#fff;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:11px 20px;
+  border-radius:4px;
+  font-size:0.78rem;
+  font-weight:700;
+  letter-spacing:0.4px;
+  text-transform:uppercase;
+  transition:background .2s ease;
+}
+.learn-more:hover{ background:var(--green-dark); }
+
+/* ============ FOOTER ============ */
+footer{
+  background:#080808;
+  color:#999;
+  padding:44px 24px 0;
+  border-top:1px solid #222;
+}
+.footer-grid{
+  max-width:1280px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1.2fr 0.9fr;
+  gap:32px;
+  padding-bottom:32px;
+}
+.footer-brand .brand{ margin-bottom:10px; }
+.footer-brand small{
+  display:block;
+  color:#777;
+  font-style:italic;
+  font-size:0.78rem;
+  margin-top:6px;
+}
+footer h6{
+  color:var(--green);
+  font-size:0.82rem;
+  letter-spacing:1px;
+  margin-bottom:16px;
+  font-family:'Inter',sans-serif;
+  font-weight:700;
+}
+footer ul li{ margin-bottom:10px; font-size:0.85rem; }
+footer ul li a:hover{ color:var(--gold); }
+.footer-contact li{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  margin-bottom:12px;
+  font-size:0.85rem;
+}
+.footer-contact i{ color:var(--gold); margin-top:3px; }
+.footer-hours li{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:0.83rem;
+  margin-bottom:10px;
+  border-bottom:1px dashed #222;
+  padding-bottom:8px;
+}
+.social-row{ display:flex; gap:10px; margin-top:6px; }
+.social-row a{
+  width:36px;height:36px;
+  border:1px solid #333;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .2s ease;
+}
+.social-row a:hover{ border-color:var(--gold); color:var(--gold); }
+
+.footer-bottom{
+  border-top:1px solid #1f1f1f;
+  padding:18px 24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  font-size:0.78rem;
+  color:#777;
+  max-width:1280px;
+  margin:0 auto;
+}
+.footer-bottom a{ margin-left:18px; }
+.footer-bottom a:hover{ color:var(--gold); }
+.footer-bottom-inner{
+  max-width:1280px;
+  margin:0 auto;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1100px){
+  .services-grid{ grid-template-columns:repeat(4,1fr); }
+  .projects-grid{ grid-template-columns:repeat(3,1fr); }
+  .dark-grid{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width: 760px){
+  .header-row{ flex-direction:column; align-items:flex-start; }
+  nav.main-nav{ display:none; }
+  .topbar-inner{ justify-content:center; text-align:center; }
+  .hero-content h2{ font-size:1.8rem; }
+  .float-actions{ position:static; flex-direction:row; justify-content:center; margin-top:20px; transform:none; }
+  .services-grid{ grid-template-columns:repeat(2,1fr); }
+  .projects-grid{ grid-template-columns:repeat(2,1fr); }
+  .why-grid{ grid-template-columns:repeat(2,1fr); }
+  .footer-grid{ grid-template-columns:1fr; }
+}
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#home">
-                <strong>Samangile Energy Solutions</strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <span><i class="fa-solid fa-phone"></i> +27 68 732 8637</span>
+    <span><i class="fa-solid fa-envelope"></i> info@samangileenergysol.co.za</span>
+    <span><i class="fa-solid fa-location-dot"></i> 20067 Sebokeng Unit 14, 1983</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="main-header">
+  <div class="header-row">
+    <div class="brand">
+      <div class="brand-icon"><img src="images/logo.png" alt="Samangile logo"></div>
+      <div class="brand-text">
+        <h1>SAMANGILE<span>ENERGY SOLUTIONS (PTY) LTD</span></h1>
+        <small>Powering innovation. Engineering the Future.</small>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#contact">Contact</a>
     </nav>
+    <a href="#contact" class="btn-quote">Request a Quote</a>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="container text-center">
-            <h1 class="display-4 fw-bold">Powering Innovation. Engineering the Future.</h1>
-            <p class="lead mt-3">Samangile Energy Solutions - Your trusted partner in renewable energy and engineering excellence</p>
-            <a href="#services" class="btn btn-primary btn-lg mt-4">Explore Services</a>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h2>
+      <span class="line1">ENGINEERING EXCELLENCE.</span>
+      <span class="line2">FABRICATION PRECISION.</span>
+      <span class="line3">ENERGY SOLUTIONS.</span>
+    </h2>
+    <p>Samangile Energy Solutions delivers professional engineering, fabrication, electrical, automation and renewable energy solutions across South Africa. We combine technical expertise with innovative technology to deliver reliable, safe and cost-effective results.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-gold"><i class="fa-regular fa-file-lines"></i> Get a Free Quote</a>
+      <a href="#chat" class="btn btn-green"><i class="fa-solid fa-robot"></i> Chat With AI</a>
+      <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-phone"></i> Contact Us</a>
+    </div>
+  </div>
+  <div class="float-actions">
+    <a href="https://wa.me/27687328637" class="float-btn whatsapp"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+    <a href="tel:+27687328637" class="float-btn call"><i class="fa-solid fa-phone"></i> Call Us Now</a>
+    <a href="mailto:info@samangileenergysol.co.za" class="float-btn email"><i class="fa-solid fa-envelope"></i> Email Us</a>
+  </div>
+</section>
+
+<!-- SERVICES STRIP -->
+<section class="services-strip" id="services">
+  <h3>OUR SERVICES</h3>
+  <div class="services-grid">
+    <div class="service-item"><i class="fa-solid fa-bolt"></i><span>Electrical Installations</span></div>
+    <div class="service-item"><i class="fa-solid fa-solar-panel"></i><span>Solar &amp; Backup Power</span></div>
+    <div class="service-item"><i class="fa-solid fa-gears"></i><span>Industrial Maintenance</span></div>
+    <div class="service-item"><i class="fa-solid fa-robot"></i><span>Automation &amp; IoT Solutions</span></div>
+    <div class="service-item"><i class="fa-solid fa-hard-hat"></i><span>Engineering Consulting</span></div>
+    <div class="service-item"><i class="fa-solid fa-tower-cell"></i><span>Structural Steel Fabrication</span></div>
+    <div class="service-item"><i class="fa-solid fa-clipboard-list"></i><span>Project Management</span></div>
+    <div class="service-item"><i class="fa-solid fa-shield-halved"></i><span>Health, Safety &amp; Compliance</span></div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="container">
+    <div class="section-head">
+      <h2>FEATURED PROJECTS</h2>
+      <a href="#projects" class="view-all">View All Projects <i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="img-wrap" style="background-image:url('images/project-gazebo.jpg')"></div>
+        <div class="info">
+          <h5>Custom Steel Gazebo</h5>
+          <p>Fabrication of circular gazebo with steel seating.</p>
+          <span class="loc"><i class="fa-solid fa-location-dot"></i> Sebokeng, Gauteng</span>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Our Services</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <h5>Structural Steel Fabrication</h5>
-                        <p>High-quality steel fabrication for industrial and commercial projects.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <h5>Welding Services</h5>
-                        <p>MIG, TIG & ARC welding with certified technicians.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <h5>Renewable Energy</h5>
-                        <p>Solar, wind, and hydroelectric energy solutions.</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3">
-                    <div class="service-card">
-                        <h5>Electrical Installations</h5>
-                        <p>Complete electrical installation and maintenance services.</p>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="project-card">
+        <div class="img-wrap" style="background-image:url('images/project-bench.jpg')"></div>
+        <div class="info">
+          <h5>Decorative Steel Bench</h5>
+          <p>Custom designed steel bench with powder coating.</p>
+          <span class="loc"><i class="fa-solid fa-location-dot"></i> Sebokeng, Gauteng</span>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section py-5 bg-light">
-        <div class="container">
-            <h2 class="text-center mb-4">About Us</h2>
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p>Samangile Energy Solutions (Pty) Ltd is a South African engineering company specializing in:</p>
-                    <ul class="list-unstyled">
-                        <li>✓ Structural Steel Fabrication</li>
-                        <li>✓ MIG, TIG & ARC Welding</li>
-                        <li>✓ Renewable Energy Solutions</li>
-                        <li>✓ Electrical Installations</li>
-                        <li>✓ Industrial Maintenance</li>
-                        <li>✓ Mining Equipment Fabrication</li>
-                        <li>✓ Automation & IoT Solutions</li>
-                    </ul>
-                </div>
-                <div class="col-md-6">
-                    <div class="about-info">
-                        <h5>Why Choose Us?</h5>
-                        <p>With years of experience in the engineering and energy sectors, we deliver world-class solutions tailored to your needs. Our team of experts is committed to innovation and sustainability.</p>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <div class="project-card">
+        <div class="img-wrap" style="background-image:url('images/project-screening.jpg')"></div>
+        <div class="info">
+          <h5>Static Screening Machine</h5>
+          <p>Design and fabrication of manual screening machine.</p>
+          <span class="loc"><i class="fa-solid fa-location-dot"></i> Mining Industry</span>
         </div>
-    </section>
-
-    <!-- Contact & Forms Section -->
-    <section id="contact" class="contact-section py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Get in Touch</h2>
-            <div class="row">
-                <!-- Chat Section -->
-                <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-header bg-primary text-white">
-                            <h5 class="mb-0">Chat with Us</h5>
-                        </div>
-                        <div class="card-body">
-                            <div id="chat-container" class="chat-container mb-3">
-                                <div class="chat-message bot-message">
-                                    <p>Hello! 👋 How can Samangile Energy Solutions assist you today?</p>
-                                </div>
-                            </div>
-                            <input type="text" id="chat-input" class="form-control mb-2" placeholder="Type your message...">
-                            <button id="chat-btn" class="btn btn-primary w-100">Send</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Quote Request Section -->
-                <div class="col-md-6 mb-4">
-                    <div class="card">
-                        <div class="card-header bg-success text-white">
-                            <h5 class="mb-0">Request a Quote</h5>
-                        </div>
-                        <div class="card-body">
-                            <form id="quote-form">
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" name="name" placeholder="Your Name" required>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="tel" class="form-control" name="phone" placeholder="Phone Number">
-                                </div>
-                                <div class="mb-3">
-                                    <select class="form-select" name="service" required>
-                                        <option value="">Select Service Type</option>
-                                        <option value="solar">Solar Energy</option>
-                                        <option value="wind">Wind Energy</option>
-                                        <option value="hydro">Hydroelectric</option>
-                                        <option value="consulting">Consulting</option>
-                                    </select>
-                                </div>
-                                <div class="mb-3">
-                                    <input type="number" class="form-control" name="amount" placeholder="Estimated Budget (ZAR)" step="0.01">
-                                </div>
-                                <div class="mb-3">
-                                    <textarea class="form-control" name="message" placeholder="Tell us more about your project" rows="3"></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-success w-100">Request Quote</button>
-                            </form>
-                            <div id="quote-response" class="mt-3"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Contact Info -->
-            <div class="row mt-5">
-                <div class="col-md-4 text-center">
-                    <h5>📞 Phone</h5>
-                    <p><a href="tel:+27687328637">+27 68 732 8637</a></p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <h5>📍 Address</h5>
-                    <p>20067 Sebokeng Unit 14, 1983<br>South Africa</p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <h5>🌐 Website</h5>
-                    <p><a href="https://samangileenergysol.co.za" target="_blank">samangileenergysol.co.za</a></p>
-                </div>
-            </div>
+      </div>
+      <div class="project-card">
+        <div class="img-wrap" style="background-image:url('images/project-structural.jpg')"></div>
+        <div class="info">
+          <h5>Structural Steel Fabrication</h5>
+          <p>Heavy-duty structural steel fabrication and welding.</p>
+          <span class="loc"><i class="fa-solid fa-location-dot"></i> Industrial Project</span>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4 mt-5">
-        <div class="container text-center">
-            <p>&copy; 2024 Samangile Energy Solutions (Pty) Ltd. All rights reserved.</p>
-            <p>Powering Innovation. Engineering the Future.</p>
+      </div>
+      <div class="project-card">
+        <div class="img-wrap" style="background-image:url('images/project-gate.jpg')"></div>
+        <div class="info">
+          <h5>Steel Gate &amp; Fencing</h5>
+          <p>Custom steel gate with decorative design and finishing.</p>
+          <span class="loc"><i class="fa-solid fa-location-dot"></i> Residential Project</span>
         </div>
-    </footer>
+      </div>
+      <div class="project-card">
+        <div class="img-wrap" style="background-image:url('images/project-platform.jpg')"></div>
+        <div class="info">
+          <h5>Mining Platform</h5>
+          <p>Fabrication and installation of mining access platform.</p>
+          <span class="loc"><i class="fa-solid fa-location-dot"></i> Mining Industry</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/script.js"></script>
+<!-- WHY US + ABOUT -->
+<section class="dark-section" id="why-us">
+  <div class="dark-grid">
+    <div class="why-us">
+      <h3>WHY CHOOSE US</h3>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 512 512" width="28" height="28" fill="currentColor"><path d="M211 7.3C205 1.7 197.2-.9 189.7.3l-89.9 14.8C73.6 19.6 51.9 38.3 44.4 64L22.3 140.8c-2.6 9.1-8.8 16.8-17.1 21.5C2 164.1 0 167.9 0 172v32.5c0 6.8 5.1 12.4 11.7 13.6l44.6 7.9c4.5.8 8.4 3.5 10.7 7.5l16.3 28.5c2.3 4 2.7 8.7 1.1 13.1l-15.6 42.9c-1.6 4.4-1.2 9.2 1.1 13.2l16.3 28.5c2.3 4 6.1 6.7 10.6 7.5l44.7 7.9c6.6 1.2 11.7 6.8 11.7 13.6V410c0 6.8-5.1 12.4-11.7 13.6l-44.7 7.9c-4.5.8-8.3 3.5-10.6 7.5l-16.3 28.5c-2.3 4-2.7 9-1.1 13.4l13.4 36.9c.6 1.7 1.5 3.2 2.6 4.6 7.8 9.5 21.9 10.6 31 2.4l45.7-40.4c3.4-3 7.9-4.5 12.4-4.1l46 4c6.8.6 13.1-3.5 15.3-9.9l14.6-42.8c1.5-4.3 4.7-7.7 8.9-9.4l42.6-17.5c6.3-2.6 9.9-9.2 8.8-15.9l-7.4-45.2c-.7-4.4.6-9 3.5-12.4l29.8-34.7c4.5-5.2 4.5-12.9 0-18.1l-29.8-34.7c-2.9-3.4-4.2-7.9-3.5-12.3l7.4-45.6c1.1-6.7-2.4-13.3-8.8-15.9l-42.6-17.4c-4.2-1.7-7.4-5.2-8.9-9.5L300.8 91c-2.2-6.4-8.5-10.5-15.3-9.9l-46 4c-4.5.4-9-1.1-12.4-4.1L211 7.3zM256 336a80 80 0 1 1 0-160 80 80 0 1 1 0 160zM160 432v66.7c0 9.3 7.4 13.3 12.6 13.3 2 0 4-.6 5.8-1.7l54.4-34.9c14.9-9.6 34.1-9.6 49 0l54.4 34.9c1.8 1.1 3.8 1.7 5.8 1.7 5.2 0 12.6-4 12.6-13.3V432a160.8 160.8 0 0 1-194.6 0z"/></svg>
+          </div>
+          <h5>Qualified Professionals</h5>
+          <p>Skilled team with industry experience and expertise.</p>
+        </div>
+        <div class="why-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 512 512" width="28" height="28" fill="currentColor"><path d="M256 0c-7.3 0-14.6 1.3-21.4 4L34.1 86.6c-20.4 8.5-34.1 28.5-34.1 50.6L0 224c0 130.7 89.6 240.5 211.1 271.2 14.5 3.6 29.6 3.6 44.1 0C375.7 464.7 465.3 354.9 465.3 224l0-86.8c0-22.1-13.7-42.1-34.1-50.6L277.4 4C270.6 1.3 263.3 0 256 0zm0 96l128 64v74.7c0 79.4-54 148.4-128 168v-306.7zM128 234.7L256 170v306.7c-74-19.6-128-88.6-128-168v-74z"/></svg>
+          </div>
+          <h5>Safety First Approach</h5>
+          <p>We prioritize safety in every project we undertake.</p>
+        </div>
+        <div class="why-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 512 512" width="28" height="28" fill="currentColor"><path d="M466.5 83.7l-192-80a48.15 48.15 0 0 0 -36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3a48 48 0 0 0 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM357.8 209L241.8 327c-4.5 4.5-10.5 7-17 7s-12.5-2.5-17-7l-57-58c-9.3-9.5-9.3-24.5 0-34s24.5-9.3 34 0l40 40.5L324 175c9.5-9.3 24.5-9.3 34 0s9.3 24.5 0 34z"/></svg>
+          </div>
+          <h5>Quality Workmanship</h5>
+          <p>High quality materials and precision workmanship.</p>
+        </div>
+        <div class="why-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 512 512" width="28" height="28" fill="currentColor"><path d="M320 0c17.7 0 32 14.3 32 32V96H192V32c0-17.7 14.3-32 32-32H320zm32 128c52.4 5.1 96 41.9 96 96v160c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V224c0-54.1 43.6-90.9 96-96h192zM48 224c0-44.2 35.8-80 80-80h256c44.2 0 80 35.8 80 80v32H48v-32z" opacity="0"/><path d="M0 80C0 53.5 21.5 32 48 32H464c26.5 0 48 21.5 48 48v16c0 26.5-21.5 48-48 48H48C21.5 144 0 122.5 0 96V80zm0 240c0-26.5 21.5-48 48-48H464c26.5 0 48 21.5 48 48v144c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V320zM320 384a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"/></svg>
+          </div>
+          <h5>Competitive Pricing</h5>
+          <p>Cost-effective solutions without compromising quality.</p>
+        </div>
+        <div class="why-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 512 512" width="28" height="28" fill="currentColor"><path d="M256 48a208 208 0 1 0 0 416 208 208 0 1 0 0-416zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm320 0a64 64 0 1 0 -128 0 64 64 0 1 0 128 0z"/></svg>
+          </div>
+          <h5>Reliable Support</h5>
+          <p>Dedicated support before, during and after project.</p>
+        </div>
+        <div class="why-item">
+          <div class="icon-circle">
+            <svg viewBox="0 0 640 512" width="28" height="28" fill="currentColor"><path d="M320 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm-80 32a80 80 0 1 0 160 0A80 80 0 1 0 240 96zM144 304a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm-80 32a80 80 0 1 0 160 0A80 80 0 1 0 64 336zm432-32a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm-80 32a80 80 0 1 0 160 0 80 80 0 1 0 -160 0zM320 160c-8.8 0-16 7.2-16 16v64c0 5.3 2.7 10.3 7.1 13.3l64 42.7c7.4 4.9 17.3 2.9 22.2-4.4s2.9-17.3-4.4-22.2L336 232.7V176c0-8.8-7.2-16-16-16z" opacity="0"/><path d="M320 96a16 16 0 1 1 0 32 16 16 0 1 1 0-32zm-64 16a64 64 0 1 0 128 0A64 64 0 1 0 256 112zM144 320a16 16 0 1 1 0 32 16 16 0 1 1 0-32zm-64 16a64 64 0 1 0 128 0A64 64 0 1 0 80 336zm432-16a16 16 0 1 1 0 32 16 16 0 1 1 0-32zm-64 16a64 64 0 1 0 128 0 64 64 0 1 0 -128 0zM280 144a8 8 0 0 1 16 0v36.7l49 32.7a8 8 0 1 1 -8.9 13.3l-53-35.3a8 8 0 0 1 -3.6-6.7V144zM160 336a8 8 0 1 1 -16 0v-96c0-30.9 25.1-56 56-56h184a8 8 0 1 1 0 16H200c-22.1 0-40 17.9-40 40v96zm320-96c0 22.1-17.9 40-40 40H264a8 8 0 1 1 0-16h176c13.3 0 24-10.7 24-24v-64a8 8 0 1 1 16 0v64z"/></svg>
+          </div>
+          <h5>Innovative Solutions</h5>
+          <p>Modern technology and smart engineering.</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-us" id="about">
+      <h3>ABOUT SAMANGILE ENERGY SOLUTIONS</h3>
+      <p>Samangile Energy Solutions (Pty) Ltd is a South African engineering and fabrication company committed to delivering innovative, reliable and sustainable solutions. We specialize in structural fabrication, mechanical design, electrical installations, renewable energy and industrial maintenance.</p>
+      <a href="#about" class="learn-more">Learn More About Us <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand">
+        <div class="brand-icon"><img src="images/logo.png" alt="Samangile logo"></div>
+        <div class="brand-text">
+          <h1 style="font-size:1.1rem;">SAMANGILE<span>ENERGY SOLUTIONS (PTY) LTD</span></h1>
+        </div>
+      </div>
+      <small>Powering Innovation. Engineering the Future.</small>
+    </div>
+    <div class="footer-links">
+      <h6>QUICK LINKS</h6>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact-col">
+      <h6>CONTACT INFO</h6>
+      <ul class="footer-contact">
+        <li><i class="fa-solid fa-phone"></i> +27 68 732 8637</li>
+        <li><i class="fa-solid fa-envelope"></i> info@samangileenergysol.co.za</li>
+        <li><i class="fa-solid fa-location-dot"></i> 20067 Sebokeng Unit 14, 1983</li>
+      </ul>
+    </div>
+    <div class="footer-hours-col">
+      <h6>BUSINESS HOURS</h6>
+      <ul class="footer-hours">
+        <li><span>Monday - Friday</span><span>07:30 - 16:30</span></li>
+        <li><span>Saturday</span><span>08:00 - 13:00</span></li>
+        <li><span>Sunday</span><span>Closed</span></li>
+      </ul>
+      <h6 style="margin-top:18px;">FOLLOW US</h6>
+      <div class="social-row">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="#"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>© 2026 Samangile Energy Solutions (Pty) Ltd. All Rights Reserved.</span>
+      <span>Designed with <i class="fa-solid fa-bolt" style="color:var(--gold);"></i> Powering Innovation. Engineering the Future.</span>
+      <span><a href="#">Privacy Policy</a> | <a href="#">POPIA</a> | <a href="#">Terms &amp; Conditions</a></span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
