@@ -1,0 +1,89 @@
+<!--
+  Contact form snippet for Samangile Energy Solutions
+  Drop this into your contact section/page, then style the classes
+  to match your existing site CSS (black/gold/green theme).
+
+  This submits to the Netlify Function at /.netlify/functions/contact
+  instead of doing a normal page reload.
+-->
+
+<form id="contact-form" novalidate>
+  <div class="form-group">
+    <label for="cf-name">Name *</label>
+    <input type="text" id="cf-name" name="name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="cf-email">Email *</label>
+    <input type="email" id="cf-email" name="email" required>
+  </div>
+
+  <div class="form-group">
+    <label for="cf-phone">Phone</label>
+    <input type="tel" id="cf-phone" name="phone">
+  </div>
+
+  <div class="form-group">
+    <label for="cf-message">Message *</label>
+    <textarea id="cf-message" name="message" rows="5" required></textarea>
+  </div>
+
+  <!-- Honeypot field: hidden from real users, bots tend to fill it in -->
+  <p style="position:absolute;overflow:hidden;clip:rect(0 0 0 0);height:1px;width:1px;margin:-1px;padding:0;border:0;">
+    <label>Don't fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+  </p>
+
+  <button type="submit" id="cf-submit">SEND MESSAGE</button>
+
+  <p id="cf-status" role="status" aria-live="polite"></p>
+</form>
+
+<script>
+  (function () {
+    const form = document.getElementById("contact-form");
+    const statusEl = document.getElementById("cf-status");
+    const submitBtn = document.getElementById("cf-submit");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      statusEl.textContent = "";
+      statusEl.style.color = "";
+
+      const payload = {
+        name: document.getElementById("cf-name").value,
+        email: document.getElementById("cf-email").value,
+        phone: document.getElementById("cf-phone").value,
+        message: document.getElementById("cf-message").value,
+        "bot-field": form.querySelector('[name="bot-field"]').value,
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "SENDING...";
+
+      try {
+        const res = await fetch("/.netlify/functions/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          statusEl.textContent = "Thank you — your message has been sent. We'll be in touch shortly.";
+          statusEl.style.color = "#2e7d32"; // green
+          form.reset();
+        } else {
+          statusEl.textContent = data.error || "Something went wrong. Please try again.";
+          statusEl.style.color = "#c0392b"; // red
+        }
+      } catch (err) {
+        statusEl.textContent = "Network error — please check your connection and try again.";
+        statusEl.style.color = "#c0392b";
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "SEND MESSAGE";
+      }
+    });
+  })();
+</script>
