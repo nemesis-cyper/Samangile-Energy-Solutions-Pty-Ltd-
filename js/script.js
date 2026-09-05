@@ -35,8 +35,8 @@ function sendMessage() {
     addMessageToChat(message, 'user');
     chatInput.value = '';
 
-    // Send to backend
-    fetch('Chat.php', {
+    // Send to Netlify serverless function
+    fetch('/.netlify/functions/chat', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
