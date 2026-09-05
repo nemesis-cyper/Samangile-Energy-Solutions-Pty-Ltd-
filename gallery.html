@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Gallery - Samangile Energy Solutions (Pty) Ltd</title>
+<meta name="description" content="Browse completed projects by Samangile Energy Solutions: structural steel fabrication, mining equipment, electrical installations and custom metalwork.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+
+:root{
+  --black:#0d0d0d;
+  --near-black:#161616;
+  --gold:#e8a93a;
+  --gold-dark:#c98f24;
+  --green:#3a9d4f;
+  --green-dark:#2c7c3d;
+  --white:#ffffff;
+  --gray-100:#f5f5f5;
+  --gray-300:#d8d8d8;
+  --gray-600:#6b6b6b;
+  --text-body:#3a3a3a;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--text-body);
+  background:var(--white);
+  line-height:1.5;
+}
+
+h1,h2,h3,h4,h5{
+  font-family:'Oswald',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:0.3px;
+  margin:0;
+}
+
+a{ text-decoration:none; color:inherit; }
+ul{ list-style:none; }
+img{ max-width:100%; display:block; }
+.container{ max-width:1280px; margin:0 auto; padding:0 24px; }
+
+/* ============ TOP BAR / HEADER (shared) ============ */
+.topbar{ background:var(--black); color:#cfcfcf; font-size:0.85rem; }
+.topbar-inner{
+  display:flex; justify-content:flex-end; gap:28px;
+  padding:8px 24px; max-width:1280px; margin:0 auto; flex-wrap:wrap;
+}
+.topbar-inner span, .topbar-inner a{ display:flex; align-items:center; gap:6px; }
+.topbar-inner i{ color:var(--gold); }
+
+header.main-header{ background:var(--black); border-bottom:2px solid #1f1f1f; }
+.header-row{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 24px; max-width:1280px; margin:0 auto; gap:24px;
+}
+.brand{ display:flex; align-items:center; gap:12px; }
+.brand-icon{
+  width:54px;height:54px; border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0; position:relative; background:#000; overflow:hidden;
+}
+.brand-icon img{ width:100%; height:100%; object-fit:contain; }
+.brand-text h1{ font-size:1.25rem; color:var(--gold); line-height:1.1; }
+.brand-text h1 span{ color:var(--green); display:block; font-size:0.7rem; letter-spacing:1px; }
+.brand-text small{
+  display:block; color:#999; font-style:italic; font-family:'Inter',sans-serif;
+  font-size:0.7rem; text-transform:none; margin-top:2px;
+}
+
+nav.main-nav{ display:flex; gap:26px; flex-wrap:wrap; }
+nav.main-nav a{
+  color:#e4e4e4; font-size:0.82rem; font-weight:600; letter-spacing:0.5px;
+  text-transform:uppercase; padding-bottom:4px; border-bottom:2px solid transparent;
+  transition:all .2s ease; white-space:nowrap;
+}
+nav.main-nav a:hover, nav.main-nav a.active{ color:var(--gold); border-bottom-color:var(--gold); }
+
+.btn-quote{
+  background:var(--gold); color:var(--black); font-weight:700; font-size:0.8rem;
+  letter-spacing:0.5px; padding:13px 22px; border-radius:4px; white-space:nowrap;
+  transition:background .2s ease;
+}
+.btn-quote:hover{ background:var(--gold-dark); }
+
+.nav-toggle{
+  display:none; background:transparent; border:1px solid #333; color:#e4e4e4;
+  width:42px;height:42px; border-radius:4px; font-size:1.1rem;
+  align-items:center; justify-content:center; cursor:pointer;
+}
+
+/* ============ PAGE HERO ============ */
+.page-hero{
+  background:var(--black); color:var(--white);
+  padding:56px 24px 48px; border-bottom:2px solid #1f1f1f;
+}
+.page-hero .eyebrow{ color:var(--gold); font-family:'Inter',sans-serif; font-size:0.8rem; font-weight:700; letter-spacing:1px; }
+.page-hero h2{ font-size:2rem; margin-top:10px; max-width:720px; }
+.page-hero h2 span{ color:var(--gold); }
+.page-hero p{ margin-top:16px; max-width:620px; color:#cfcfcf; font-size:0.95rem; }
+
+/* ============ FILTER TABS ============ */
+.filter-row{
+  display:flex; gap:10px; flex-wrap:wrap;
+  padding:28px 24px 0; max-width:1280px; margin:0 auto;
+}
+.filter-tab{
+  border:1.5px solid #ccc; padding:8px 16px; border-radius:30px;
+  font-size:0.78rem; font-weight:700; letter-spacing:0.4px; text-transform:uppercase;
+  cursor:pointer; transition:all .2s ease; background:transparent; color:var(--text-body);
+  font-family:'Inter',sans-serif;
+}
+.filter-tab.active, .filter-tab:hover{ background:var(--gold); border-color:var(--gold); color:var(--black); }
+
+/* ============ GALLERY GRID ============ */
+.gallery-section{ padding:32px 24px 56px; }
+.gallery-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:18px;
+}
+.gallery-card{
+  border:1px solid #e8e8e8; border-radius:6px; overflow:hidden;
+  transition:box-shadow .2s ease, transform .2s ease;
+}
+.gallery-card:hover{ box-shadow:0 10px 24px rgba(0,0,0,0.12); transform:translateY(-3px); }
+.gallery-card .img-wrap{
+  height:180px; background-size:cover; background-position:center; background-color:#ddd;
+}
+.gallery-card .info{ padding:14px 16px 18px; }
+.gallery-card h5{
+  font-size:0.88rem; color:var(--black); margin-bottom:6px;
+  text-transform:none; font-family:'Inter',sans-serif; font-weight:700;
+}
+.gallery-card p{ font-size:0.78rem; color:var(--gray-600); margin-bottom:8px; line-height:1.4; }
+.gallery-card .tag{
+  display:inline-block; font-size:0.68rem; font-weight:700; letter-spacing:0.5px;
+  text-transform:uppercase; padding:4px 10px; border-radius:3px;
+  background:rgba(58,157,79,0.1); color:var(--green-dark);
+}
+
+/* ============ CTA STRIP ============ */
+.cta-strip{ background:var(--black); color:var(--white); padding:44px 24px; text-align:center; }
+.cta-strip h3{ font-size:1.4rem; color:var(--white); }
+.cta-strip p{ margin-top:10px; color:#bdbdbd; font-size:0.9rem; }
+.cta-strip .btn{
+  display:inline-flex; align-items:center; gap:10px; margin-top:22px;
+  padding:13px 24px; border-radius:4px; font-weight:700; font-size:0.82rem;
+  letter-spacing:0.4px; text-transform:uppercase; background:var(--gold); color:var(--black);
+  transition:background .2s ease;
+}
+.cta-strip .btn:hover{ background:var(--gold-dark); }
+
+/* ============ FOOTER (shared) ============ */
+footer{ background:#080808; color:#999; padding:44px 24px 0; border-top:1px solid #222; }
+.footer-grid{
+  max-width:1280px; margin:0 auto; display:grid;
+  grid-template-columns:1.3fr 1fr 1.2fr 0.9fr; gap:32px; padding-bottom:32px;
+}
+.footer-brand .brand{ margin-bottom:10px; }
+.footer-brand small{ display:block; color:#777; font-style:italic; font-size:0.78rem; margin-top:6px; }
+footer h6{
+  color:var(--green); font-size:0.82rem; letter-spacing:1px; margin-bottom:16px;
+  font-family:'Inter',sans-serif; font-weight:700;
+}
+footer ul li{ margin-bottom:10px; font-size:0.85rem; }
+footer ul li a:hover{ color:var(--gold); }
+.footer-contact li{ display:flex; align-items:flex-start; gap:10px; margin-bottom:12px; font-size:0.85rem; }
+.footer-contact i{ color:var(--gold); margin-top:3px; }
+.footer-hours li{
+  display:flex; justify-content:space-between; gap:10px; font-size:0.83rem;
+  margin-bottom:10px; border-bottom:1px dashed #222; padding-bottom:8px;
+}
+.footer-bottom-inner{
+  max-width:1280px; margin:0 auto; width:100%; display:flex;
+  justify-content:space-between; flex-wrap:wrap; gap:10px;
+  border-top:1px solid #1f1f1f; padding:18px 24px; font-size:0.78rem; color:#777;
+}
+.footer-bottom-inner a{ margin-left:18px; }
+.footer-bottom-inner a:hover{ color:var(--gold); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1100px){
+  .gallery-grid{ grid-template-columns:repeat(2,1fr); }
+  .footer-grid{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width: 760px){
+  .header-row{ flex-wrap:wrap; }
+  nav.main-nav{
+    display:none; width:100%; flex-direction:column; gap:0; order:3;
+    background:var(--near-black); border-top:1px solid #262626; margin-top:14px;
+  }
+  nav.main-nav.open{ display:flex; }
+  nav.main-nav a{ padding:14px 6px; border-bottom:1px solid #262626; width:100%; }
+  .nav-toggle{ display:flex; }
+  .topbar-inner{ justify-content:center; text-align:center; }
+  .page-hero h2{ font-size:1.5rem; }
+  .gallery-grid{ grid-template-columns:1fr; }
+  .footer-grid{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="tel:+27687328637"><i class="fa-solid fa-phone"></i> +27 68 732 8637</a>
+    <a href="mailto:info@samangileenergysol.co.za"><i class="fa-solid fa-envelope"></i> info@samangileenergysol.co.za</a>
+    <span><i class="fa-solid fa-location-dot"></i> 20067 Sebokeng Unit 14, 1983</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="main-header">
+  <div class="header-row">
+    <div class="brand">
+      <div class="brand-icon"><img src="images/logo.png" alt="Samangile logo"></div>
+      <div class="brand-text">
+        <h1>SAMANGILE<span>ENERGY SOLUTIONS (PTY) LTD</span></h1>
+        <small>Powering innovation. Engineering the Future.</small>
+      </div>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About Us</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#projects">Projects</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="index.html#why-us">Why Us</a>
+      <a href="support-team.html">Support Team</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <a href="index.html#contact" class="btn-quote">Request a Quote</a>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container">
+    <span class="eyebrow">OUR WORK</span>
+    <h2>Project <span>Gallery</span></h2>
+    <p>A closer look at the fabrication, engineering and installation work Samangile Energy Solutions has delivered across residential, industrial and mining projects.</p>
+  </div>
+</section>
+
+<!-- FILTER TABS -->
+<div class="filter-row">
+  <button class="filter-tab active" data-filter="all">All</button>
+  <button class="filter-tab" data-filter="fabrication">Fabrication</button>
+  <button class="filter-tab" data-filter="mining">Mining</button>
+  <button class="filter-tab" data-filter="residential">Residential</button>
+  <button class="filter-tab" data-filter="industrial">Industrial</button>
+</div>
+
+<!-- GALLERY GRID -->
+<section class="gallery-section">
+  <div class="container">
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="gallery-card" data-category="fabrication">
+        <div class="img-wrap" style="background-image:url('images/project-gazebo.jpg')"></div>
+        <div class="info">
+          <h5>Custom Steel Gazebo</h5>
+          <p>Fabrication of circular gazebo with steel seating.</p>
+          <span class="tag">Fabrication</span>
+        </div>
+      </div>
+      <div class="gallery-card" data-category="residential">
+        <div class="img-wrap" style="background-image:url('images/project-bench.jpg')"></div>
+        <div class="info">
+          <h5>Decorative Steel Bench</h5>
+          <p>Custom designed steel bench with powder coating.</p>
+          <span class="tag">Residential</span>
+        </div>
+      </div>
+      <div class="gallery-card" data-category="mining">
+        <div class="img-wrap" style="background-image:url('images/project-screening.jpg')"></div>
+        <div class="info">
+          <h5>Static Screening Machine</h5>
+          <p>Design and fabrication of manual screening machine.</p>
+          <span class="tag">Mining</span>
+        </div>
+      </div>
+      <div class="gallery-card" data-category="industrial">
+        <div class="img-wrap" style="background-image:url('images/project-structural.jpg')"></div>
+        <div class="info">
+          <h5>Structural Steel Fabrication</h5>
+          <p>Heavy-duty structural steel fabrication and welding.</p>
+          <span class="tag">Industrial</span>
+        </div>
+      </div>
+      <div class="gallery-card" data-category="residential">
+        <div class="img-wrap" style="background-image:url('images/project-gate.jpg')"></div>
+        <div class="info">
+          <h5>Steel Gate &amp; Fencing</h5>
+          <p>Custom steel gate with decorative design and finishing.</p>
+          <span class="tag">Residential</span>
+        </div>
+      </div>
+      <div class="gallery-card" data-category="mining">
+        <div class="img-wrap" style="background-image:url('images/project-platform.jpg')"></div>
+        <div class="info">
+          <h5>Mining Platform</h5>
+          <p>Fabrication and installation of mining access platform.</p>
+          <span class="tag">Mining</span>
+        </div>
+      </div>
+      <div class="gallery-card" data-category="industrial">
+        <div class="img-wrap" style="background-image:url('images/project-electrical.jpg')"></div>
+        <div class="info">
+          <h5>Industrial Electrical Installation</h5>
+          <p>Panel wiring and installation for an industrial facility.</p>
+          <span class="tag">Industrial</span>
+        </div>
+      </div>
+      <div class="gallery-card" data-category="fabrication">
+        <div class="img-wrap" style="background-image:url('images/project-solar.jpg')"></div>
+        <div class="info">
+          <h5>Solar Backup Installation</h5>
+          <p>Solar panel and battery backup system installation.</p>
+          <span class="tag">Fabrication</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="cta-strip">
+  <h3>Have A Project In Mind?</h3>
+  <p>Get in touch and let's discuss how we can bring it to life.</p>
+  <a href="index.html#contact" class="btn"><i class="fa-solid fa-file-lines"></i> Request a Quote</a>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand">
+        <div class="brand-icon"><img src="images/logo.png" alt="Samangile logo"></div>
+        <div class="brand-text">
+          <p style="font-size:1.1rem; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:0.3px; color:var(--gold); line-height:1.1;">SAMANGILE<span style="color:var(--green); display:block; font-size:0.7rem; letter-spacing:1px;">ENERGY SOLUTIONS (PTY) LTD</span></p>
+        </div>
+      </div>
+      <small>Powering Innovation. Engineering the Future.</small>
+    </div>
+    <div class="footer-links">
+      <h6>QUICK LINKS</h6>
+      <ul>
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="index.html#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact-col">
+      <h6>CONTACT INFO</h6>
+      <ul class="footer-contact">
+        <li><i class="fa-solid fa-phone"></i> +27 68 732 8637</li>
+        <li><i class="fa-solid fa-envelope"></i> info@samangileenergysol.co.za</li>
+        <li><i class="fa-solid fa-location-dot"></i> 20067 Sebokeng Unit 14, 1983</li>
+      </ul>
+    </div>
+    <div class="footer-hours-col">
+      <h6>BUSINESS HOURS</h6>
+      <ul class="footer-hours">
+        <li><span>Monday - Friday</span><span>07:30 - 16:30</span></li>
+        <li><span>Saturday</span><span>08:00 - 13:00</span></li>
+        <li><span>Sunday</span><span>Closed</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom-inner">
+    <span>&copy; 2026 Samangile Energy Solutions (Pty) Ltd. All Rights Reserved.</span>
+    <span><a href="index.html">Privacy Policy</a> | <a href="index.html">POPIA</a> | <a href="index.html">Terms &amp; Conditions</a></span>
+  </div>
+</footer>
+
+<script>
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('main-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      var isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+  }
+
+  var tabs = document.querySelectorAll('.filter-tab');
+  var cards = document.querySelectorAll('.gallery-card');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var filter = tab.getAttribute('data-filter');
+      cards.forEach(function (card) {
+        var match = filter === 'all' || card.getAttribute('data-category') === filter;
+        card.style.display = match ? '' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
